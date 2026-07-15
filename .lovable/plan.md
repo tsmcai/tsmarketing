@@ -1,59 +1,70 @@
-# TSMC Marketing — Landing Page Plan
+# Footer Redesign Plan
 
-Premium single-page site for TSMC Marketing (Google SEO, Websites, Chatbots). Dark "Midnight Indigo" aesthetic, Space Grotesk + DM Sans, one purpose per section, one primary CTA: **Get a free SEO audit**.
+The current footer is a thin two-row utility bar (logo + tagline, 4 links, copyright). It underuses the closing real estate and doesn't reinforce trust, SEO, or the primary CTA. Here's a focused upgrade that stays on-brand (Midnight Indigo, Space Grotesk + DM Sans) and only touches presentation code.
 
-## Visual system
+## Goals
 
-- Palette: `#0a0a1a` bg, `#141432` surface, `#1e1e5a` elevated, `#4f46e5` accent, plus off-white text and muted slate.
-- Typography: Space Grotesk (display) + DM Sans (body), loaded via `<link>` in `__root.tsx`.
-- Tokens in `src/styles.css` as oklch: background, foreground, primary (indigo), muted, border, plus `--gradient-primary`, `--gradient-glow`, `--shadow-elegant`.
-- 8px spacing, section padding 96–120px, max content width ~1200px.
-- Motion: subtle fade/slide-up on scroll (framer-motion), restrained hover states. No parallax, no floating orbs everywhere.
+- Reinforce the primary CTA one last time (audit) without duplicating the FinalCTA panel.
+- Give search engines and humans a real sitemap and contact surface.
+- Add subtle brand atmosphere (gradient hairline, soft glow) so the page ends with intention, not a flat line.
 
-## Page structure (in order, each with one purpose)
+## New footer structure
 
-1. **Sticky nav** — logo, 3 links (Services, Process, FAQ), single "Free SEO Audit" button.
-2. **Hero** — headline ("Rank higher. Convert more. On autopilot."), one supporting sentence, one primary CTA + subtle trust line, one visual (indigo mesh gradient with a mocked dashboard/search snippet).
-3. **Trust bar** — muted row of 5–6 placeholder client wordmarks.
-4. **Problem** — 3 short pain statements (invisible on Google, outdated site, missed leads).
-5. **Solution / Services** — 3 cards: SEO, Websites, Chatbots. Benefit-led copy.
-6. **Benefits** — 4 outcome tiles (more traffic, more leads, 24/7 answers, measurable ROI).
-7. **Process** — 4 numbered steps (Audit → Strategy → Build → Grow).
-8. **Portfolio placeholder** — 3 case-study cards with metric-forward stats (placeholder imagery marked).
-9. **Testimonials** — 2–3 quote cards (placeholder).
-10. **FAQ** — accordion, 6 questions handling objections.
-11. **Final CTA** — full-width indigo gradient panel repeating "Get a free SEO audit".
-12. **Footer** — logo, short tagline, minimal link column, copyright.
+```text
+┌──────────────────────────────────────────────────────────────┐
+│  gradient hairline (indigo → transparent)                    │
+│                                                              │
+│  ┌────────────────────┐   ┌─────────┐ ┌─────────┐ ┌────────┐ │
+│  │ Logo               │   │ Services│ │ Company │ │ Resources│
+│  │ One-line tagline   │   │ SEO     │ │ About   │ │ FAQ     │ │
+│  │ Contact:           │   │ Websites│ │ Process │ │ Case    │ │
+│  │  hello@tsmc...     │   │ Chatbots│ │ Work    │ │ studies │ │
+│  │  +1 (000) 000-0000 │   │ Audits  │ │ Contact │ │ Blog    │ │
+│  │ Socials (X, LI, IG)│   │         │ │         │ │         │ │
+│  └────────────────────┘   └─────────┘ └─────────┘ └────────┘ │
+│                                                              │
+│  ─────────────────────────────────────────────────────────── │
+│  © 2026 TSMC Marketing · Privacy · Terms      Made in ▍     │
+└──────────────────────────────────────────────────────────────┘
+```
 
-## Files to create / modify
+Four-column grid on desktop (brand block spans 2 cols), stacks to a single column on mobile with generous spacing.
 
-- `src/styles.css` — replace default tokens with Midnight Indigo palette; add gradient/shadow tokens; register `--font-display` / `--font-sans`.
-- `src/routes/__root.tsx` — Google Fonts `<link>`s; real title/description/OG/Twitter meta ("TSMC Marketing — SEO, Websites & Chatbots that convert"); favicon link to new brand favicon; keep `<Outlet />`.
-- `src/routes/index.tsx` — replace placeholder with full landing composition; per-route `head()` with hero-specific title, description, canonical `/`, JSON-LD `Organization`, og:image (absolute via server fn).
-- `src/lib/origin.functions.ts` — `getRequestOrigin` server fn for absolute OG URLs.
-- `src/components/site/` — `Nav.tsx`, `Hero.tsx`, `TrustBar.tsx`, `Problem.tsx`, `Services.tsx`, `Benefits.tsx`, `Process.tsx`, `Portfolio.tsx`, `Testimonials.tsx`, `FAQ.tsx`, `FinalCTA.tsx`, `Footer.tsx`, `Logo.tsx` (inline SVG wordmark, mono + icon variants).
-- `src/components/ui/accordion.tsx` — add shadcn accordion for FAQ (`bun add @radix-ui/react-accordion`).
-- `bun add framer-motion` for restrained scroll reveals.
+## Sections in detail
 
-## Brand assets
+1. **Brand block (left, 2 cols wide)**
+   - Logo + one-sentence positioning line.
+   - Contact affordances: mailto link, tel link, city ("Remote · Serving North America").
+   - Small social row (X / LinkedIn / Instagram) as icon buttons with hover lift.
 
-- **Logo**: inline SVG "TSMC" wordmark with a subtle indigo mark (chevron/arrow). Rendered directly in React — full-color, mono, and 32×32 icon variants exported from the same `Logo.tsx`.
-- **Favicon**: generate a square PNG of the icon mark on `#0a0a1a`, save to `public/favicon.png`, delete default `public/favicon.ico`, wire `<link rel="icon" type="image/png" href="/favicon.png">` in root `head()`.
-- **Hero visual**: generated indigo-gradient abstract with a stylized search-result / analytics card overlay, saved to `src/assets/hero.jpg`.
-- **OG image (1200×630)**: generated banner with logo, headline, indigo gradient, saved to `src/assets/og.jpg` and referenced from the leaf route only (not root) with absolute URL.
+2. **Services column** — SEO, Websites, Chatbots, Free audit (each anchors to the matching section, `#services`, `#audit`).
 
-## SEO / metadata
+3. **Company column** — About, Process (`#process`), Work (`#work`), Contact (`#audit`).
 
-- Root: charset, viewport, sitewide og:type=website, og:site_name=TSMC Marketing, theme-color `#0a0a1a`, apple-touch-icon.
-- Home leaf: title "TSMC Marketing — SEO, Websites & Chatbots that convert" (<60 chars), meta description (<160), og:title, og:description, og:image (absolute), twitter:card=summary_large_image, canonical `/`, JSON-LD Organization.
-- Single H1 in hero. Semantic `<section>` with `aria-labelledby`. Alt text on all imagery. Lazy-load below-fold images.
+4. **Resources column** — FAQ (`#faq`), Case studies (`#work`), Blog (placeholder `#`), Testimonials (`#testimonials` if id added, else `#work`).
 
-## Copy principles applied
+5. **Legal bar (bottom)**
+   - Left: © year + "TSMC Marketing" + Privacy + Terms (placeholder routes `#`).
+   - Right: subtle "Crafted with intent" or region badge; keep it quiet.
 
-- Hero headline 6–8 words, subhead ~18 words, one CTA.
-- Every service card leads with outcome, not tech.
-- FAQ handles: price, timeline, contracts, results guarantee, ownership, tech stack.
+## Visual details
+
+- Top edge: 1px gradient hairline `linear-gradient(90deg, transparent, var(--primary)/40, transparent)` instead of a solid border, so the footer feels like it emerges from the page.
+- Background: `bg-surface/40` with a very soft radial glow (reuse `--gradient-radial`) anchored bottom-left at ~10% opacity — echoes the hero without shouting.
+- Column headings: uppercase, tracking-wide, `text-xs`, `text-muted-foreground`.
+- Links: `text-sm`, muted → foreground on hover, 150ms transition.
+- Social icons: 36×36 rounded-full, `border border-border/60`, hover `bg-primary/10 border-primary/40`.
+- Spacing: `py-16 md:py-20` for the main grid, `py-5` for the legal bar.
+- Newsletter is intentionally NOT added — no backend, and it would dilute the single "Free SEO audit" CTA the page is built around.
+
+## Files touched
+
+- `src/components/site/Footer.tsx` — rewrite structure and styling per above. Presentation-only, no data/logic.
+- (Optional) `src/components/site/Testimonials.tsx` — add `id="testimonials"` on the section wrapper so the resource link resolves. Skip if you'd rather keep footer links pointing at existing anchors only.
+
+No new dependencies, no route/SEO changes, no business logic.
 
 ## Verification
 
-After build: view generated hero + OG images to confirm quality, check the home route in the preview at desktop (1280) and mobile (390) via Playwright screenshots, confirm no default "Lovable App" strings remain, confirm favicon swapped.
+- Playwright screenshot at 1280 and 390 widths to confirm the 4-col → 1-col reflow, hairline visibility, and that the glow doesn't fight the FinalCTA panel above.
+- Tab through footer links to confirm focus rings are visible on the dark surface.
