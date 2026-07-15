@@ -38,19 +38,23 @@ export function Services() {
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08}>
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface/50 p-8 transition-colors hover:border-primary/40">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40">
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-60"
+                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-70"
                   style={{ background: "var(--gradient-primary)" }}
                 />
                 <h3 className="font-display text-2xl font-semibold">{s.title}</h3>
                 <p className="mt-2 text-primary-glow">{s.outcome}</p>
                 <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{s.desc}</p>
                 <ul className="mt-6 space-y-2 border-t border-border/60 pt-6 text-sm">
-                  {s.points.map((pt) => (
-                    <li key={pt} className="flex items-start gap-3 text-muted-foreground">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mt-0.5 shrink-0 text-primary-glow">
+                  {s.points.map((pt, idx) => (
+                    <li
+                      key={pt}
+                      className="flex items-start gap-3 text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-foreground"
+                      style={{ transitionDelay: `${idx * 40}ms` }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mt-0.5 shrink-0 text-primary-glow transition-transform duration-300 group-hover:scale-110">
                         <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <span>{pt}</span>

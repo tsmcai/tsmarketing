@@ -1,17 +1,19 @@
+import { useState } from "react";
 import { Reveal } from "./Reveal";
 
 export function FinalCTA() {
+  const [sent, setSent] = useState(false);
   return (
     <section id="audit" className="px-6 pb-24 md:pb-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div
-            className="relative overflow-hidden rounded-3xl border border-primary/30 px-8 py-20 text-center md:px-16 md:py-24"
+            className="relative overflow-hidden rounded-3xl border border-primary/30 px-8 py-20 text-center md:px-16 md:py-24 animate-pan-bg"
             style={{ background: "var(--gradient-primary)" }}
           >
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-30"
+              className="pointer-events-none absolute inset-0 animate-twinkle"
               style={{
                 backgroundImage:
                   "radial-gradient(circle at 20% 20%, white 0.5px, transparent 1px), radial-gradient(circle at 80% 60%, white 0.5px, transparent 1px)",
@@ -31,6 +33,8 @@ export function FinalCTA() {
                   const data = new FormData(e.currentTarget);
                   console.log("audit request", Object.fromEntries(data));
                   (e.currentTarget as HTMLFormElement).reset();
+                  setSent(true);
+                  setTimeout(() => setSent(false), 1800);
                 }}
                 className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
               >
@@ -41,13 +45,22 @@ export function FinalCTA() {
                   type="url"
                   required
                   placeholder="yourcompany.com"
-                  className="h-12 flex-1 rounded-full border border-white/25 bg-white/10 px-5 text-sm text-white placeholder:text-white/60 outline-none backdrop-blur focus:border-white/50"
+                  className="h-12 flex-1 rounded-full border border-white/25 bg-white/10 px-5 text-sm text-white placeholder:text-white/60 outline-none backdrop-blur transition-colors focus:border-white/60"
                 />
                 <button
                   type="submit"
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-primary transition-transform hover:scale-[1.02]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-primary transition-transform hover:scale-[1.03]"
                 >
-                  Get my audit
+                  {sent ? (
+                    <>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      Sent
+                    </>
+                  ) : (
+                    "Get my audit"
+                  )}
                 </button>
               </form>
               <p className="mt-4 text-xs text-white/70">No spam. No sales calls. Just the audit.</p>

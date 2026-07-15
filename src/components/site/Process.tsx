@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 
 const steps = [
@@ -18,21 +19,31 @@ export function Process() {
 
         <div className="mt-16">
           <div className="relative">
-            <div
+            <motion.div
               aria-hidden
-              className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-border to-transparent md:block"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformOrigin: "left" }}
+              className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent md:block"
             />
             <ol className="grid gap-10 md:grid-cols-4">
               {steps.map((s, i) => (
-                <Reveal key={s.n} delay={i * 0.08}>
-                  <li className="relative">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/50 bg-background font-display text-sm font-semibold text-primary-glow">
-                      {s.n}
-                    </div>
-                    <h3 className="mt-5 text-lg font-semibold">{s.t}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-                  </li>
-                </Reveal>
+                <motion.li
+                  key={s.n}
+                  initial={{ opacity: 0, scale: 0.85, y: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/50 bg-background font-display text-sm font-semibold text-primary-glow shadow-[0_0_24px_-6px_oklch(0.68_0.20_285/0.8)]">
+                    {s.n}
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold">{s.t}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+                </motion.li>
               ))}
             </ol>
           </div>

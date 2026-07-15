@@ -42,17 +42,17 @@
   --radius: 0.75rem;
 
   /* Midnight Indigo palette (oklch) */
-  --background: oklch(0.14 0.03 275);        /* #0a0a1a */
+  --background: oklch(0.14 0.03 275);
   --foreground: oklch(0.97 0.005 275);
-  --surface: oklch(0.19 0.05 275);           /* #141432 */
-  --elevated: oklch(0.26 0.09 275);          /* #1e1e5a */
+  --surface: oklch(0.19 0.05 275);
+  --elevated: oklch(0.26 0.09 275);
 
   --card: oklch(0.19 0.05 275);
   --card-foreground: oklch(0.97 0.005 275);
   --popover: oklch(0.19 0.05 275);
   --popover-foreground: oklch(0.97 0.005 275);
 
-  --primary: oklch(0.55 0.22 275);           /* #4f46e5 */
+  --primary: oklch(0.55 0.22 275);
   --primary-foreground: oklch(0.99 0 0);
   --primary-glow: oklch(0.68 0.20 285);
 
@@ -102,5 +102,74 @@
 
   ::selection {
     background: oklch(0.55 0.22 275 / 0.35);
+  }
+}
+
+/* ============== Motion primitives ============== */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes aurora {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1); }
+  50%  { transform: translate3d(3%, 2%, 0) scale(1.05); }
+  100% { transform: translate3d(-3%, -2%, 0) scale(1); }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.55; }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 oklch(0.68 0.20 285 / 0.55); }
+  50% { transform: scale(1.15); box-shadow: 0 0 0 6px oklch(0.68 0.20 285 / 0); }
+}
+@keyframes panBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-aurora { animation: aurora 25s ease-in-out infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-bob { animation: bob 2.2s ease-in-out infinite; }
+.animate-twinkle { animation: twinkle 4s ease-in-out infinite; }
+.animate-breathe { animation: breathe 2.4s ease-out infinite; }
+.animate-marquee { animation: marquee 40s linear infinite; }
+.animate-pan-bg { background-size: 200% 200%; animation: panBg 20s ease-in-out infinite; }
+
+.text-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    transparent 30%,
+    oklch(1 0 0 / 0.35) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+.pause-on-hover:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

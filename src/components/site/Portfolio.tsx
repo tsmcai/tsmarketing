@@ -38,24 +38,27 @@ export function Portfolio() {
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {cases.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.08}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface/40">
+              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface/40 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_30px_80px_-40px_oklch(0.55_0.22_275/0.8)]">
                 <div className={`relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br ${c.tint}`}>
                   <div
                     aria-hidden
-                    className="absolute inset-0"
+                    className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-100 opacity-70"
                     style={{
                       backgroundImage:
-                        "radial-gradient(circle at 30% 30%, oklch(0.68 0.20 285 / 0.5), transparent 55%)",
+                        "radial-gradient(circle at 30% 30%, oklch(0.68 0.20 285 / 0.6), transparent 55%)",
                     }}
                   />
-                  <div className="absolute bottom-6 left-6">
+                  <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" />
+                  <div className="absolute bottom-6 left-6 transition-transform duration-500 group-hover:-translate-y-1">
                     <div className="font-display text-4xl font-semibold text-white">{c.metric}</div>
                     <div className="mt-1 text-sm text-white/80">{c.label}</div>
                   </div>
                 </div>
                 <div className="flex-1 p-6">
                   <div className="text-xs uppercase tracking-widest text-muted-foreground">{c.tag}</div>
-                  <h3 className="mt-2 text-lg font-semibold leading-snug">{c.title}</h3>
+                  <h3 className="mt-2 text-lg font-semibold leading-snug">
+                    <span className="story-link">{c.title}</span>
+                  </h3>
                 </div>
               </article>
             </Reveal>

@@ -12,27 +12,37 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
           ? "border-b border-border/60 bg-background/70 backdrop-blur-xl"
           : "border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="shrink-0">
+        <a href="#top" className="shrink-0 transition-transform duration-300 hover:scale-[1.03]">
           <Logo />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#services" className="transition-colors hover:text-foreground">Services</a>
-          <a href="#process" className="transition-colors hover:text-foreground">Process</a>
-          <a href="#work" className="transition-colors hover:text-foreground">Work</a>
-          <a href="#faq" className="transition-colors hover:text-foreground">FAQ</a>
+          {[
+            { h: "#services", l: "Services" },
+            { h: "#process", l: "Process" },
+            { h: "#work", l: "Work" },
+            { h: "#faq", l: "FAQ" },
+          ].map((i) => (
+            <a key={i.h} href={i.h} className="story-link transition-colors hover:text-foreground">
+              {i.l}
+            </a>
+          ))}
         </nav>
         <a
           href="#audit"
-          className="inline-flex h-9 items-center rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:scale-[1.02]"
+          className="group relative inline-flex h-9 items-center overflow-hidden rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:scale-[1.04]"
         >
-          Free SEO audit
+          <span
+            aria-hidden
+            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+          />
+          <span className="relative">Free SEO audit</span>
         </a>
       </div>
     </header>
