@@ -3,19 +3,19 @@ import { Reveal } from "./Reveal";
 const services = [
   {
     title: "Google SEO",
-    outcome: "More qualified traffic — every month.",
+    outcome: "More qualified traffic every month.",
     desc: "Technical SEO, content strategy, and local ranking work that compounds. You own the results.",
     points: ["Full technical audit", "Keyword & content roadmap", "On-page + backlink work"],
   },
   {
     title: "Websites",
     outcome: "A site built to convert, not just impress.",
-    desc: "Fast, accessible, conversion-focused websites shipped in weeks, not months. Yours to keep.",
-    points: ["Conversion-first design", "Sub-second load times", "CMS you actually control"],
+    desc: "Fast, accessible, conversion focused websites shipped in weeks, not months. Yours to keep.",
+    points: ["Conversion first design", "Sub second load times", "CMS you actually control"],
   },
   {
     title: "AI Chatbots",
-    outcome: "Answer every visitor — in seconds, 24/7.",
+    outcome: "Answer every visitor in seconds, 24/7.",
     desc: "Custom AI assistants trained on your business. Book meetings and qualify leads while you sleep.",
     points: ["Trained on your content", "Books meetings automatically", "Handoff to humans when needed"],
   },
@@ -31,7 +31,7 @@ export function Services() {
             One partner. The full growth stack.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            SEO, website, and chatbot — designed to work as one system, not three vendors.
+            SEO, website, and chatbot designed to work as one system, not three vendors.
           </p>
         </Reveal>
 
