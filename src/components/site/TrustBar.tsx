@@ -1,22 +1,15 @@
 import { Reveal } from "./Reveal";
 
-const brands = [
-  "AURELIA HOTELS",
-  "KING STREET INN",
-  "MARINER & CO",
-  "THE LAUREL",
-  "CASA MERIDIAN",
-  "NORTH BAY LODGE",
-];
+const brands = ["NORTHWIND", "ATLAS & CO", "LUMEN", "KESTREL", "MERIDIAN", "FORGE"];
 
 export function TrustBar() {
   const loop = [...brands, ...brands];
   return (
-    <section aria-label="Trusted by hotels" className="border-y border-border/50 bg-surface/30 py-10">
+    <section aria-label="Trusted by" className="border-y border-border/50 bg-surface/30 py-10">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Direct bookings up at
+            Trusted by growing teams
           </p>
         </Reveal>
         <div

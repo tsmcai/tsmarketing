@@ -2,10 +2,10 @@ import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram } from "lucide-react"
 import { Logo } from "./Logo";
 
 const services = [
-  { label: "Hotel SEO", href: "#services" },
-  { label: "Direct-booking websites", href: "#services" },
-  { label: "AI concierge", href: "#services" },
-  { label: "Free booking audit", href: "#audit" },
+  { label: "Google SEO", href: "#services" },
+  { label: "Websites", href: "#services" },
+  { label: "AI Chatbots", href: "#services" },
+  { label: "Free SEO audit", href: "#audit" },
 ];
 
 const company = [
@@ -75,8 +75,8 @@ export function Footer() {
           <div className="md:col-span-2">
             <Logo />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              SEO, direct-booking websites, and AI concierge — built for independent and
-              boutique hotels that want more direct reservations and less OTA commission.
+              SEO, websites, and chatbots that turn search into revenue engineered for
+              teams that measure marketing in pipeline, not impressions.
             </p>
 
             <ul className="mt-6 space-y-2.5 text-sm">

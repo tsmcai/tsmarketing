@@ -1,99 +1,81 @@
+# Animation Plan — Midnight Indigo, tastefully alive
 
-# Make it real: a hotelier-focused, proof-forward homepage
+Goal: make the page feel alive and premium (Linear/Framer-grade) without cartoonish motion. All timings 300–800ms, easing `[0.22, 1, 0.36, 1]`, respects `prefers-reduced-motion`.
 
-Right now the site reads like a generic agency — no images of what you actually deliver, and copy that could belong to anyone. This plan rewrites it around one audience (independent & boutique hotel owners/GMs) and puts real product visuals on every scroll so people can *see* what they're buying.
+## 1. Global motion primitives
+- Extend `Reveal.tsx` with variants: `fade-up` (default), `fade`, `blur-in`, `stagger` (children with `staggerChildren: 0.08`).
+- Add a `useReducedMotion()` short-circuit that renders children statically.
+- Add CSS utilities in `styles.css`: `@keyframes shimmer`, `@keyframes float`, `@keyframes aurora`, `@keyframes marquee`, `.animate-shimmer`, `.animate-float`, `.animate-aurora`.
 
-## Positioning shift
+## 2. Hero (`Hero.tsx`)
+- Animated aurora background: slow-drifting radial gradient (25s `aurora` keyframe on the existing radial layer).
+- Headline word-by-word reveal: split "Rank higher. Convert more." into spans, stagger opacity+`y:12`+`blur(6px)`→0 at 60ms per word.
+- "Convert more." gradient text gets a slow shimmer sweep (6s loop, low opacity).
+- Status pill: pulsing glow dot (already there) + subtle scale breathe.
+- CTA button: on hover, arrow slides + soft glow ring pulses once.
+- Scroll cue below CTA: tiny chevron with 2s bob.
 
-- **Audience lock:** Independent hotels, boutique groups, and resorts (10–200 rooms) that pay 15–25% to OTAs and want more direct bookings.
-- **One-line promise:** "More direct bookings. Less OTA commission. Built for hotels."
-- **Tone:** Direct & confident — founder-to-GM. Short sentences. Named numbers. Zero fluff words ("elevate", "unlock", "empower" are banned).
+## 3. TrustBar
+- Convert to a slow marquee (30s linear infinite, pause on hover) so logos feel continuous instead of static.
 
-## Section-by-section rebuild
+## 4. Problem cards
+- Stagger reveal (0/80/160ms). On hover: card lifts 4px, border shifts to `primary/40`, the `01/02/03` numeral scales 1.05 and brightens.
 
-### 1. Hero (`Hero.tsx`)
-- New H1: **"Fill more rooms. Pay less to OTAs."**
-- Sub: "We build the SEO, direct-booking website, and 24/7 AI concierge that turns Google searches into confirmed reservations — not Booking.com commissions."
-- CTA: "Get a free booking audit" → subtext: "See exactly where you're losing reservations. 24-hour turnaround."
-- **Visual (new):** Split hero. Left = copy. Right = a stacked "device mock" cluster: a laptop showing a boutique hotel homepage (room grid + "Book direct" CTA) + a phone showing the AI concierge answering "Do you allow dogs?" at 11:47 PM. Generated as one composed image via imagegen (premium), no cheesy stock.
-- Kill the aurora-only background; keep the gradient but layer the product image so users immediately see *a hotel website + a chatbot*.
+## 5. Services
+- Icons draw-in using `pathLength` motion (0→1 over 700ms) on first view.
+- Card border gets a conic-gradient "beam" that rotates on hover (masked to 1px border).
 
-### 2. Trust bar (`TrustBar.tsx`)
-- Replace placeholder text logos with **real client hotel logos** via Logo.dev (`img.logo.dev/{domain}`). You'll give us 5–8 hotel domains; until then, we mark it "Add your logos" in code (not visible copy).
-- Label above: "Direct bookings up at:"
+## 6. Benefits (stat grid)
+- Count-up animation for the four numbers (`3.4×`, `48%`, `24/7`, `100%`) using `useMotionValue` + `animate`, triggered `whileInView`, 1.2s ease-out.
+- Number gradient gets the same subtle shimmer as hero.
 
-### 3. Problem (`Problem.tsx`) — reframed for hotels
-Three pains, named in hotelier language:
-- **"OTAs eat 18% of every stay."** You pay Booking.com and Expedia to send you guests who were already searching for *you*.
-- **"Your website looks nice, but doesn't book."** Pretty photos, no rate calendar, no urgency, no direct-book incentive.
-- **"Guests ask at midnight. Nobody answers."** By morning they've booked the hotel down the street.
+## 7. Process
+- Horizontal connector line animates its width from 0→100% (`scaleX` with `transform-origin: left`) over 900ms when scrolled into view.
+- Each step circle pops in sequentially (scale 0.8→1, 120ms apart) synced to the line.
 
-Add a small screenshot/illustration to each card (OTA invoice snippet, a "book direct" widget, a chatbot bubble).
+## 8. Portfolio cards
+- Reveal stagger.
+- On hover: image layer scales 1.04, radial glow intensifies, metric number nudges up 2px, tag underlines via `story-link`.
+- Tilt-free — keep it calm.
 
-### 4. Services (`Services.tsx`) — rewritten as hotel deliverables
-- **Hotel SEO** — Rank for "boutique hotel in [city]", "[city] hotel with pool", branded searches. Steal traffic back from OTAs.
-- **Direct-booking websites** — Fast, mobile-first sites with live rate calendar, best-rate guarantee bar, and one-tap booking. Integrates with your PMS (Cloudbeds, Mews, SiteMinder, Little Hotelier).
-- **AI concierge chatbot** — Trained on your policies, rooms, and local recs. Answers in 12 languages. Captures the booking while the guest is still on your site.
+## 9. Testimonials
+- Reveal + quote mark rotates in (−12°→0°, 500ms).
+- Subtle 6s float on the quote mark icon.
 
-Each card gets a **real product screenshot mockup** (rate calendar UI, SEO ranking chart, chatbot conversation) instead of the current abstract hover glow.
+## 10. FAQ
+- Chevron rotates 180° on open (already via Radix data-state).
+- Answer content uses the existing `accordion-down/up` keyframes — verify they're wired.
 
-### 5. Benefits (`Benefits.tsx`) — hotel numbers
-- **+37%** direct bookings in 6 months (avg across engagements)
-- **−22%** OTA commission spend
-- **24/7** guest response in 12 languages
-- **8×** ROI vs. paid meta-search
+## 11. FinalCTA
+- Gradient background slowly pans (`background-position` 20s loop).
+- Starfield dots twinkle (opacity 0.2↔0.5, staggered, 3–5s).
+- Submit button: on submit success, morph to check + "Sent" for 1.5s before reset.
 
-### 6. NEW: "See it in action" section
-A dedicated show-not-tell block with three real UI mockups side by side:
-1. **Booking engine widget** — date picker + "Book direct & save 12%" badge
-2. **SEO dashboard** — ranking climb over 90 days for a hotel keyword set
-3. **Chatbot transcript** — real guest question → answer → "Book this room" button
+## 12. Nav
+- On scroll past 12px (already tracked): logo mark rotates 90° once, backdrop blur fades in over 300ms (already partially there — smooth it).
+- Nav link hover: `story-link` underline sweep.
 
-Generated as clean, framed product shots (dark UI, matches the site's Midnight Indigo theme).
-
-### 7. Process (`Process.tsx`) — keep structure, hotel-ify copy
-Audit → Strategy → Build → Grow. Each step names a hotel artifact (e.g. Audit = "OTA leakage report + 3 competitor teardown").
-
-### 8. Portfolio (`Portfolio.tsx`) — real case studies
-Three cards with actual before/after numbers you provide. Each card shows a **framed screenshot of the hotel's site** (not the current gradient placeholder). If you don't have permission yet, we use anonymized "Boutique hotel, Lisbon" style labels + composed mock screenshots.
-
-### 9. Testimonials (`Testimonials.tsx`)
-Rewrite quotes in GM/owner voice, add hotel name + role ("Owner, 42-room boutique, Charleston"). Add a small circular headshot slot (Logo.dev fallback or placeholder ring until you send photos).
-
-### 10. FAQ (`FAQ.tsx`) — hotel-specific
-Swap generic Qs for: PMS integration, contract length, who owns the site, how fast bookings lift, do you work with branded/flagged properties, GDPR & guest data.
-
-### 11. Final CTA (`FinalCTA.tsx`)
-- Headline: **"See exactly where your bookings are leaking."**
-- Sub: "Free 30-minute audit: your site, your 3 closest competitors, and the OTA revenue you can win back. Delivered in 24 hours by a real strategist."
-- Form: add a "Number of rooms" field (10–50 / 51–150 / 150+) — signals qualification and makes the form feel tailored.
-
-## Visual production plan
-
-All images generated via imagegen (premium for UI/text legibility), saved to `src/assets/`, then externalized via `lovable-assets` if large:
-
-1. `hero-composite.jpg` — laptop (hotel homepage) + phone (chatbot) on Midnight Indigo backdrop.
-2. `mock-booking-widget.png` — rate calendar with "Book direct & save" badge.
-3. `mock-seo-dashboard.png` — dark-theme ranking chart, hotel keywords.
-4. `mock-chatbot.png` — chat transcript with "Book this room" CTA.
-5. `mock-ota-invoice.png` — small stylized OTA commission line item (for Problem card).
-6. Three portfolio hero images — framed hotel-website screenshots.
-
-Logos come from **Logo.dev** (connector). We'll wire `VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY` when you're ready to plug in real hotel domains.
+## 13. Page-level polish
+- Add a very subtle grain overlay (SVG noise, 3% opacity, fixed) so gradients don't band.
+- Smooth section transitions: 1px gradient hairline between sections fades in on scroll.
 
 ## Technical notes
+- All new motion uses `framer-motion` (already installed) — no new deps.
+- Respect `prefers-reduced-motion: reduce` everywhere via `useReducedMotion()` and CSS `@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }`.
+- Keep bundle impact zero — no lottie, no GSAP.
 
-- No new dependencies. Framer Motion + Tailwind stay.
-- Copy lives inline in each component (same pattern as today) — easy to tweak.
-- SEO: update `<title>` and meta description on `/` to hotel-specific keywords ("Hotel SEO, direct-booking websites & AI concierge — TSMC Marketing").
-- Add JSON-LD `Organization` + `Service` schema referencing hotel industry.
-- Every new image gets descriptive `alt` (e.g. "Boutique hotel direct-booking widget showing rate calendar").
-- One new section component: `src/components/site/ShowInAction.tsx`, wired into `src/routes/index.tsx` between Services and Benefits.
+## Files touched
+- `src/styles.css` (keyframes + reduced-motion guard)
+- `src/components/site/Reveal.tsx` (variants)
+- `src/components/site/Hero.tsx`
+- `src/components/site/TrustBar.tsx`
+- `src/components/site/Problem.tsx`
+- `src/components/site/Services.tsx`
+- `src/components/site/Benefits.tsx` (new count-up)
+- `src/components/site/Process.tsx`
+- `src/components/site/Portfolio.tsx`
+- `src/components/site/Testimonials.tsx`
+- `src/components/site/FinalCTA.tsx`
+- `src/components/site/Nav.tsx`
 
-## What I need from you before build
-
-1. **5–8 hotel domains** to display in the trust bar (or "use tasteful placeholders and I'll swap later").
-2. **Any real case-study numbers** you can share (even anonymized) — otherwise I'll write credible, conservative composites and clearly mark them as illustrative.
-3. **Confirm the offer** in the Final CTA: is "free 30-min audit, 24-hour turnaround" still accurate?
-
-If you say "go" without answering, I'll proceed with tasteful placeholders and conservative composite numbers, and we'll swap real assets in a follow-up.
+No routing, SEO, or business-logic changes.

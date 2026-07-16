@@ -3,28 +3,28 @@ import { Reveal } from "./Reveal";
 
 const faqs = [
   {
-    q: "Do you integrate with our PMS and booking engine?",
-    a: "Yes. We work with Cloudbeds, Mews, SiteMinder, Little Hotelier, and most modern PMS platforms. If yours has a public API or booking widget, we integrate it.",
+    q: "How much does this cost?",
+    a: "Engagements start at $2,500/month for focused SEO and scale with scope. Website builds are project based, quoted after the audit. You'll see pricing before we ever ask for a card.",
   },
   {
-    q: "How fast will direct bookings actually move?",
-    a: "Chatbot and website changes ship in weeks and lift conversion almost immediately. SEO compounds — expect early ranking wins in 60–90 days and material direct-booking growth by month 6.",
-  },
-  {
-    q: "Do you work with branded or flagged properties?",
-    a: "Mostly independents and boutique groups. We'll take on flagged properties when the brand allows meaningful control over the website and marketing — otherwise the work can't move the needle.",
-  },
-  {
-    q: "How much does it cost?",
-    a: "Engagements start at $2,500/month for focused SEO and scale with property count and scope. Website builds are project-based and quoted after the audit. You see pricing before we ever ask for a card.",
+    q: "How long until I see results?",
+    a: "Chatbots and website changes ship in weeks. SEO compounds you'll see early wins in 60–90 days and material traffic growth by month 6.",
   },
   {
     q: "Am I locked into a long contract?",
-    a: "No. Month-to-month after an initial 90-day sprint. If we're not earning our fee, you leave — and you keep the site, content, and chatbot flows.",
+    a: "No. We work month-to-month after an initial 90-day sprint. If we're not earning our fee, you leave — and keep everything we built.",
   },
   {
-    q: "Who owns the website and guest data?",
-    a: "You do. Fully. Code, copy, analytics, chatbot conversations, and guest data live in your accounts from day one. GDPR-compliant by default.",
+    q: "Do you guarantee rankings?",
+    a: "Nobody honest does. We guarantee the work, the process, and full transparency on what's moving the needle. Rankings follow.",
+  },
+  {
+    q: "Who owns the website and content?",
+    a: "You do. Fully. Code, copy, chatbot flows, analytics — all in your accounts, from day one.",
+  },
+  {
+    q: "What tech stack do you use?",
+    a: "Modern, fast, and boring on purpose: Next.js or Astro for sites, GA4 + Search Console for measurement, and best-in-class LLMs for chat. We optimize for your team, not our preferences.",
   },
 ];
 

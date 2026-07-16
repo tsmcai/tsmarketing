@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 
 const steps = [
-  { n: "01", t: "Audit", d: "OTA leakage report, 3-competitor teardown, and a written diagnosis in 5 business days." },
-  { n: "02", t: "Strategy", d: "A 90-day roadmap with booking targets, keyword priorities, and the numbers we're accountable to." },
-  { n: "03", t: "Build", d: "Website, chatbot, and SEO work shipped in weekly increments — you see progress, not just invoices." },
-  { n: "04", t: "Grow", d: "Monthly reporting on direct bookings, OTA share, and revenue. Compounding results, no surprises." },
+  { n: "01", t: "Audit", d: "We map your current rankings, site, and funnel. You get a written diagnosis in 5 business days." },
+  { n: "02", t: "Strategy", d: "A 90 day roadmap with clear priorities, targets, and the numbers we're accountable to." },
+  { n: "03", t: "Build", d: "We ship content, pages, chatbot flows, technical fixes with weekly progress you can see." },
+  { n: "04", t: "Grow", d: "Monthly reporting, iteration, and expansion. Compounding results, no surprises." },
 ];
 
 export function Process() {
