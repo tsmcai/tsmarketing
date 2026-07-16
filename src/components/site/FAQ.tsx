@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "How long until I see results?",
-    a: "Chatbots and website changes ship in weeks. SEO compounds — you'll see early wins in 60–90 days and material traffic growth by month 6.",
+    a: "Chatbots and website changes ship in weeks. SEO compounds you'll see early wins in 60–90 days and material traffic growth by month 6.",
   },
   {
     q: "Am I locked into a long contract?",
