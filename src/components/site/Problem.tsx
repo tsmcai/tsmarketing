@@ -1,9 +1,21 @@
 import { Reveal } from "./Reveal";
 
 const pains = [
-  { k: "01", t: "Invisible on Google", d: "Your ideal customers are searching and finding competitors instead of you." },
-  { k: "02", t: "A website that doesn't sell", d: "Traffic arrives, bounces, and leaves no trace. Design without a strategy is decoration." },
-  { k: "03", t: "Leads slipping through the cracks", d: "Visitors ask questions at 11pm. Nobody answers until Monday. The deal is already gone." },
+  {
+    k: "01",
+    t: "OTAs eat 18% of every stay",
+    d: "You pay Booking.com and Expedia to send you guests who were already searching for your hotel by name.",
+  },
+  {
+    k: "02",
+    t: "Your website looks nice — but doesn't book",
+    d: "Pretty photos, no live rate calendar, no direct-book incentive, no urgency. Visitors leave and rebook on an OTA.",
+  },
+  {
+    k: "03",
+    t: "Guests ask at midnight. Nobody answers",
+    d: "By morning they've booked the hotel down the street. Every unanswered question is a room you didn't sell.",
+  },
 ];
 
 export function Problem() {
@@ -13,7 +25,7 @@ export function Problem() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-primary-glow">The problem</p>
           <h2 className="mt-4 text-4xl font-semibold md:text-5xl">
-            Growth stalls when marketing works in silos.
+            You're paying OTAs for guests who wanted you first.
           </h2>
         </Reveal>
 

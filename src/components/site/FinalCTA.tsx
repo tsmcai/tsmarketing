@@ -22,10 +22,10 @@ export function FinalCTA() {
             />
             <div className="relative">
               <h2 className="mx-auto max-w-2xl text-balance text-4xl font-semibold text-white md:text-5xl">
-                See exactly what's holding your growth back.
+                See exactly where your bookings are leaking.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-white/85">
-                Free 30 minute SEO audit of your site and top 3 competitors. Delivered by a real strategist within 24 hours.
+                Free 30-minute audit: your site, your 3 closest competitors, and the OTA revenue you can win back. Delivered by a real strategist within 24 hours.
               </p>
               <form
                 onSubmit={(e) => {
@@ -36,20 +36,35 @@ export function FinalCTA() {
                   setSent(true);
                   setTimeout(() => setSent(false), 1800);
                 }}
-                className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
+                className="mx-auto mt-10 flex max-w-xl flex-col gap-3"
               >
-                <label className="sr-only" htmlFor="site">Website URL</label>
-                <input
-                  id="site"
-                  name="site"
-                  type="url"
-                  required
-                  placeholder="yourcompany.com"
-                  className="h-12 flex-1 rounded-full border border-white/25 bg-white/10 px-5 text-sm text-white placeholder:text-white/60 outline-none backdrop-blur transition-colors focus:border-white/60"
-                />
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <label className="sr-only" htmlFor="site">Hotel website URL</label>
+                  <input
+                    id="site"
+                    name="site"
+                    type="url"
+                    required
+                    placeholder="yourhotel.com"
+                    className="h-12 flex-1 rounded-full border border-white/25 bg-white/10 px-5 text-sm text-white placeholder:text-white/60 outline-none backdrop-blur transition-colors focus:border-white/60"
+                  />
+                  <label className="sr-only" htmlFor="rooms">Number of rooms</label>
+                  <select
+                    id="rooms"
+                    name="rooms"
+                    required
+                    defaultValue=""
+                    className="h-12 rounded-full border border-white/25 bg-white/10 px-5 text-sm text-white outline-none backdrop-blur transition-colors focus:border-white/60"
+                  >
+                    <option value="" disabled className="text-foreground">Rooms</option>
+                    <option value="10-50" className="text-foreground">10–50 rooms</option>
+                    <option value="51-150" className="text-foreground">51–150 rooms</option>
+                    <option value="150+" className="text-foreground">150+ rooms</option>
+                  </select>
+                </div>
                 <button
                   type="submit"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-primary transition-transform hover:scale-[1.03]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-primary transition-transform hover:scale-[1.02]"
                 >
                   {sent ? (
                     <>
@@ -59,7 +74,7 @@ export function FinalCTA() {
                       Sent
                     </>
                   ) : (
-                    "Get my audit"
+                    "Get my booking audit"
                   )}
                 </button>
               </form>

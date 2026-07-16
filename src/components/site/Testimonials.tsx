@@ -3,14 +3,14 @@ import { Reveal } from "./Reveal";
 
 const quotes = [
   {
-    q: "Within three months we were ranking for terms we'd been chasing for two years. The difference was strategy, not spend.",
+    q: "We cut OTA commission by nearly a quarter in six months. The site pays for itself every single week.",
     a: "Rachel Voss",
-    r: "Founder, Northwind Studio",
+    r: "Owner, 42-room boutique · Charleston",
   },
   {
-    q: "The chatbot pays for itself every week. It handles the questions we used to hire people to answer.",
+    q: "The AI concierge answers the 11pm questions our front desk used to miss. Those are bookings we were flat-out losing.",
     a: "Marco DeLuca",
-    r: "Head of Ops, Atlas & Co",
+    r: "General Manager, seaside resort · Portugal",
   },
 ];
 
