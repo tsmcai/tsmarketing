@@ -36,18 +36,8 @@ export function Hero() {
 
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur"
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className={`absolute inline-flex h-full w-full rounded-full bg-primary-glow ${reduce ? "" : "animate-breathe"}`} />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-glow shadow-[0_0_12px_var(--color-primary-glow)]" />
-            </span>
-            Now booking Q1 SEO engagements
-          </motion.div>
+          {/* Status badge hidden per user request */}
+
 
           <h1 className="mt-6 text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
             <span className="block">
