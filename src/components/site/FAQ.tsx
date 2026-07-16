@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 const faqs = [
   {
     q: "How much does this cost?",
-    a: "Engagements start at $2,500/month for focused SEO and scale with scope. Website builds are project-based, quoted after the audit. You'll see pricing before we ever ask for a card.",
+    a: "Engagements start at $2,500/month for focused SEO and scale with scope. Website builds are project based, quoted after the audit. You'll see pricing before we ever ask for a card.",
   },
   {
     q: "How long until I see results?",
