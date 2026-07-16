@@ -1,7 +1,7 @@
 import { Reveal } from "./Reveal";
 
 const pains = [
-  { k: "01", t: "Invisible on Google", d: "Your ideal customers are searching — and finding competitors instead of you." },
+  { k: "01", t: "Invisible on Google", d: "Your ideal customers are searching and finding competitors instead of you." },
   { k: "02", t: "A website that doesn't sell", d: "Traffic arrives, bounces, and leaves no trace. Design without a strategy is decoration." },
   { k: "03", t: "Leads slipping through the cracks", d: "Visitors ask questions at 11pm. Nobody answers until Monday. The deal is already gone." },
 ];

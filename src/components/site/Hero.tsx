@@ -68,7 +68,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground"
           >
-            We build the SEO, website, and chatbot stack that turns Google searches into paying customers — measured, not promised.
+            We build the SEO, website, and chatbot stack that turns Google searches into paying customers measured, not promised.
           </motion.p>
 
           <motion.div
@@ -91,7 +91,7 @@ export function Hero() {
               </svg>
             </a>
             <p className="text-xs text-muted-foreground">
-              No commitment · 24-hour turnaround · Delivered by a human
+              No commitment · 24hour turnaround · Delivered by a human
             </p>
           </motion.div>
 
