@@ -75,7 +75,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <Logo />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              SEO, websites, and chatbots that turn search into revenue — engineered for
+              SEO, websites, and chatbots that turn search into revenue engineered for
               teams that measure marketing in pipeline, not impressions.
             </p>
 

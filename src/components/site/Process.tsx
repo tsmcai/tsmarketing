@@ -3,8 +3,8 @@ import { Reveal } from "./Reveal";
 
 const steps = [
   { n: "01", t: "Audit", d: "We map your current rankings, site, and funnel. You get a written diagnosis in 5 business days." },
-  { n: "02", t: "Strategy", d: "A 90-day roadmap with clear priorities, targets, and the numbers we're accountable to." },
-  { n: "03", t: "Build", d: "We ship — content, pages, chatbot flows, technical fixes — with weekly progress you can see." },
+  { n: "02", t: "Strategy", d: "A 90 day roadmap with clear priorities, targets, and the numbers we're accountable to." },
+  { n: "03", t: "Build", d: "We ship content, pages, chatbot flows, technical fixes with weekly progress you can see." },
   { n: "04", t: "Grow", d: "Monthly reporting, iteration, and expansion. Compounding results, no surprises." },
 ];
 

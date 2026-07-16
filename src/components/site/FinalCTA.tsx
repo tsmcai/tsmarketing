@@ -25,7 +25,7 @@ export function FinalCTA() {
                 See exactly what's holding your growth back.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-white/85">
-                Free 30-minute SEO audit of your site and top 3 competitors. Delivered by a real strategist within 24 hours.
+                Free 30 minute SEO audit of your site and top 3 competitors. Delivered by a real strategist within 24 hours.
               </p>
               <form
                 onSubmit={(e) => {

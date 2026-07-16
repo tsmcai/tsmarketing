@@ -91,7 +91,7 @@ export function Hero() {
               </svg>
             </a>
             <p className="text-xs text-muted-foreground">
-              No commitment · 24 hour turnaround · Delivered by a human
+              {"\n"}
             </p>
           </motion.div>
 
