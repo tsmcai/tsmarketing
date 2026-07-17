@@ -11,6 +11,7 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { FAQ } from "@/components/site/FAQ";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
+import { AmbientBackground } from "@/components/site/AmbientBackground";
 
 const TITLE = "TSMC Marketing — SEO, Websites & Chatbots that Convert";
 const DESCRIPTION =
@@ -48,17 +49,18 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
+      <AmbientBackground />
       <Nav />
       <main>
         <Hero />
-        <TrustBar />
-        <Problem />
-        <Services />
-        <Benefits />
-        <Process />
-        <Portfolio />
-        <Testimonials />
-        <FAQ />
+        <div className="tint-trust"><TrustBar /></div>
+        <div className="tint-problem"><Problem /></div>
+        <div className="tint-services"><Services /></div>
+        <div className="tint-benefits"><Benefits /></div>
+        <div className="tint-process"><Process /></div>
+        <div className="tint-work"><Portfolio /></div>
+        <div className="tint-testimonials"><Testimonials /></div>
+        <div className="tint-faq"><FAQ /></div>
         <FinalCTA />
       </main>
       <Footer />
