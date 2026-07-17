@@ -22,10 +22,10 @@ export function FinalCTA() {
             />
             <div className="relative">
               <h2 className="mx-auto max-w-2xl text-balance text-4xl font-semibold text-white md:text-5xl">
-                See exactly what's holding your growth back.
+                See exactly what's costing you jobs.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-white/85">
-                Free 30 minute SEO audit of your site and top 3 competitors. Delivered by a real strategist within 24 hours.
+                Free 30-minute audit. We'll show you the 3 things killing your rankings and the exact steps to fix them. Delivered by a real strategist within 24 hours — not a bot, not a sales rep.
               </p>
               <form
                 onSubmit={(e) => {

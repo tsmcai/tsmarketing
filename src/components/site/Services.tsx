@@ -1,23 +1,27 @@
+import { Search, Globe, MessageSquare } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const services = [
   {
-    title: "Google SEO",
-    outcome: "More qualified traffic every month.",
-    desc: "Technical SEO, content strategy, and local ranking work that compounds. You own the results.",
-    points: ["Full technical audit", "Keyword & content roadmap", "On-page + backlink work"],
+    title: "Local SEO",
+    outcome: "Show up when customers search for you.",
+    desc: "We get you into the Google Map Pack and local rankings so when someone searches \"near me,\" your business is the first call they make.",
+    points: ["Google Business Profile optimization", "Local keyword & content roadmap", "Reviews & citation building"],
+    Icon: Search,
   },
   {
-    title: "Websites",
-    outcome: "A site built to convert, not just impress.",
-    desc: "Fast, accessible, conversion focused websites shipped in weeks, not months. Yours to keep.",
-    points: ["Conversion first design", "Sub second load times", "CMS you actually control"],
+    title: "Conversion Websites",
+    outcome: "A site that turns clicks into phone calls.",
+    desc: "Fast, mobile-first websites designed for one thing: getting visitors to call, book, or request a quote. Built in weeks, not months.",
+    points: ["Click-to-call & instant booking", "Sub-second load on mobile", "You own it — no lock-in"],
+    Icon: Globe,
   },
   {
     title: "AI Chatbots",
-    outcome: "Answer every visitor in seconds, 24/7.",
-    desc: "Custom AI assistants trained on your business. Book meetings and qualify leads while you sleep.",
-    points: ["Trained on your content", "Books meetings automatically", "Handoff to humans when needed"],
+    outcome: "Capture every lead, even at 2am.",
+    desc: "A custom AI assistant trained on your services that answers questions, books appointments, and qualifies leads 24/7 — so no job slips away.",
+    points: ["Trained on your services & pricing", "Books appointments directly", "Hands off to you for complex jobs"],
+    Icon: MessageSquare,
   },
 ];
 
@@ -31,23 +35,26 @@ export function Services() {
             One partner. The full growth stack.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            SEO, website, and chatbot designed to work as one system, not three vendors.
+            SEO, website, and chatbot designed to work as one system — so every search becomes a call, and every call becomes a job.
           </p>
         </Reveal>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08}>
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40">
+              <div className="card-surface group h-full rounded-2xl p-8 hover:-translate-y-1">
                 <div
                   aria-hidden
                   className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-70"
                   style={{ background: "var(--gradient-primary)" }}
                 />
-                <h3 className="font-display text-2xl font-semibold">{s.title}</h3>
-                <p className="mt-2 text-primary-glow">{s.outcome}</p>
-                <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{s.desc}</p>
-                <ul className="mt-6 space-y-2 border-t border-border/60 pt-6 text-sm">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary-glow transition-transform duration-300 group-hover:scale-110">
+                  <s.Icon className="h-6 w-6" />
+                </div>
+                <h3 className="relative mt-5 font-display text-2xl font-semibold">{s.title}</h3>
+                <p className="relative mt-2 text-primary-glow">{s.outcome}</p>
+                <p className="relative mt-4 text-[15px] leading-relaxed text-muted-foreground">{s.desc}</p>
+                <ul className="relative mt-6 space-y-2 border-t border-border/60 pt-6 text-sm">
                   {s.points.map((pt, idx) => (
                     <li
                       key={pt}
@@ -61,7 +68,7 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
-              </article>
+              </div>
             </Reveal>
           ))}
         </div>

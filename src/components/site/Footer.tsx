@@ -75,8 +75,8 @@ export function Footer() {
           <div className="md:col-span-2">
             <Logo />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              SEO, websites, and chatbots that turn search into revenue engineered for
-              teams that measure marketing in pipeline, not impressions.
+              SEO, websites, and AI chatbots for local service businesses that measure
+              marketing in phone calls and booked jobs — not impressions.
             </p>
 
             <ul className="mt-6 space-y-2.5 text-sm">
@@ -133,7 +133,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_oklch(0.55_0.22_275/0.9)]" />
-            Crafted with intent
+            Built for local pros
           </div>
         </div>
       </div>

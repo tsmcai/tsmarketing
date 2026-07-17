@@ -161,9 +161,25 @@
 /* Fine grid pattern, masked to fade at edges */
 .bg-grid {
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 0.035) 1px, transparent 1px);
+    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+/* Premium card surface — solid + top edge highlight */
+.card-surface {
+  background-color: var(--color-elevated);
+  border: 1px solid var(--color-border);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.08),
+    0 4px 24px -8px oklch(0 0 0 / 0.4);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.card-surface:hover {
+  border-color: oklch(0.55 0.22 275 / 0.5);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.12),
+    0 20px 60px -20px oklch(0.55 0.22 275 / 0.4);
 }
 
 /* SVG film grain (inline data URI keeps it asset-free) */
@@ -172,14 +188,14 @@
 }
 
 /* Per-section ambient hue washes — hybrid overlay layer */
-.tint-trust { background: radial-gradient(120% 80% at 50% 0%, oklch(0.55 0.22 275 / 0.06), transparent 60%); }
-.tint-problem { background: radial-gradient(90% 60% at 15% 30%, oklch(0.62 0.20 25 / 0.05), transparent 55%); }
-.tint-services { background: radial-gradient(100% 70% at 85% 20%, oklch(0.68 0.20 285 / 0.07), transparent 55%); }
-.tint-benefits { background: radial-gradient(110% 60% at 50% 100%, oklch(0.55 0.22 275 / 0.06), transparent 60%); }
-.tint-process { background: radial-gradient(80% 50% at 50% 50%, oklch(0.68 0.20 285 / 0.05), transparent 60%); }
-.tint-work { background: radial-gradient(90% 60% at 80% 40%, oklch(0.55 0.22 275 / 0.06), transparent 55%); }
-.tint-testimonials { background: radial-gradient(100% 70% at 20% 60%, oklch(0.68 0.20 285 / 0.05), transparent 55%); }
-.tint-faq { background: radial-gradient(90% 60% at 50% 30%, oklch(0.55 0.22 275 / 0.04), transparent 60%); }
+.tint-trust { background: radial-gradient(120% 80% at 50% 0%, oklch(0.55 0.22 275 / 0.12), transparent 60%); }
+.tint-problem { background: radial-gradient(90% 60% at 15% 30%, oklch(0.60 0.22 25 / 0.10), transparent 55%); }
+.tint-services { background: radial-gradient(100% 70% at 85% 20%, oklch(0.68 0.20 285 / 0.12), transparent 55%); }
+.tint-benefits { background: radial-gradient(110% 60% at 50% 100%, oklch(0.55 0.22 275 / 0.10), transparent 60%); }
+.tint-process { background: radial-gradient(80% 50% at 50% 50%, oklch(0.68 0.20 285 / 0.10), transparent 60%); }
+.tint-work { background: radial-gradient(90% 60% at 80% 40%, oklch(0.55 0.22 275 / 0.12), transparent 55%); }
+.tint-testimonials { background: radial-gradient(100% 70% at 20% 60%, oklch(0.68 0.20 285 / 0.10), transparent 55%); }
+.tint-faq { background: radial-gradient(90% 60% at 50% 30%, oklch(0.55 0.22 275 / 0.08), transparent 60%); }
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-bob { animation: bob 2.2s ease-in-out infinite; }
 .animate-twinkle { animation: twinkle 4s ease-in-out infinite; }

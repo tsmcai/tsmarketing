@@ -4,11 +4,11 @@ import { Reveal } from "./Reveal";
 const faqs = [
   {
     q: "How much does this cost?",
-    a: "Engagements start at $2,500/month for focused SEO and scale with scope. Website builds are project based, quoted after the audit. You'll see pricing before we ever ask for a card.",
+    a: "Engagements start at $2,500/month for focused local SEO and scale with scope. Website builds are project-based, quoted after the audit. You'll see exact pricing before we ever ask for a card.",
   },
   {
     q: "How long until I see results?",
-    a: "Chatbots and website changes ship in weeks. SEO compounds you'll see early wins in 60–90 days and material traffic growth by month 6.",
+    a: "Chatbots and website changes ship in weeks. Local SEO compounds — you'll see early wins in 60–90 days and material traffic growth by month 6. Anyone promising overnight rankings is lying.",
   },
   {
     q: "Am I locked into a long contract?",
@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     q: "Who owns the website and content?",
-    a: "You do. Fully. Code, copy, chatbot flows, analytics — all in your accounts, from day one.",
+    a: "You do. Fully. Code, copy, chatbot flows, analytics — all in your accounts, from day one. No hostage situations.",
   },
   {
-    q: "What tech stack do you use?",
-    a: "Modern, fast, and boring on purpose: Next.js or Astro for sites, GA4 + Search Console for measurement, and best-in-class LLMs for chat. We optimize for your team, not our preferences.",
+    q: "What if I already have a website?",
+    a: "Great — we'll audit it for free. Most local service sites lose leads because they're slow, confusing, or invisible on mobile. We'll show you exactly what's broken and what it'll take to fix.",
   },
 ];
 
@@ -55,7 +55,7 @@ export function FAQ() {
                     </svg>
                   </Accordion.Trigger>
                 </Accordion.Header>
-                <Accordion.Content className="overflow-hidden text-[15px] leading-relaxed text-muted-foreground data-[state=closed]:animate-none data-[state=open]:animate-none">
+                <Accordion.Content className="overflow-hidden text-[15px] leading-relaxed text-muted-foreground data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                   <div className="pb-6 pr-10">{f.a}</div>
                 </Accordion.Content>
               </Accordion.Item>
