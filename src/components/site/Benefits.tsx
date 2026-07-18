@@ -5,7 +5,7 @@ import { Reveal } from "./Reveal";
 type Stat = { value: number; suffix: string; decimals?: number; t: string; d: string };
 
 const stats: Stat[] = [
-  { value: 3.4, suffix: "More Visibility", decimals: 1, t: "more organic traffic", d: "The average lift across our 12-month engagements not a best case cherry pick." },
+  { value: 3.4, suffix: "×", decimals: 1, t: "more organic traffic", d: "The average lift across our 12-month engagements not a best case cherry pick." },
   { value: 48, suffix: "%", t: "lower cost", d: "By replacing paid ad with owned channels that compound." },
   { value: 24, suffix: "/7", t: "AI Customer Support", d: "Your chatbot answers and qualifies before your competitor wakes up." },
   { value: 100, suffix: "%", t: "yours to keep", d: "You own the site, content, and data from day one." },
